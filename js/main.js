@@ -60,7 +60,7 @@ const App = {
     },
 
     getQuote() {
-      return fetch('http://api.quotable.io/random', {
+      return fetch('https://api.quotable.io/random', {
           headers: {
             'content-type': 'application/json'
           }
