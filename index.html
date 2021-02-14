@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TypeQuote</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lora:ital,wght@0,400;0,500;1,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <div id="app">
+
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <h1 class="header__title">
+            <span class="header__title-text">{{title}}</span>
+          </h1>
+        </div>
+      </div>
+    </header>
+
+    <section class="main">
+      <div class="container">
+        <div class="main__inner">
+          <div v-if="welcomeScreen" class="welcome" >
+            <h2 class="welcome__title">{{welcomeTitle}} </h2>
+            <p class="welcome__text">{{welcomeText}}</p>
+            <button class="btn start-btn" @click.prevent="startApp" :disabled="lowRes">Start!</button>
+          </div>
+          <div v-else class="main__content">
+            <div class="quote">
+              <div class="quote__text" v-html="quoteOutput">
+              </div>
+              <div class="quote__author">
+                {{quoteAuthor}}
+              </div>
+            </div>
+
+            <textarea 
+            class="textarea" 
+            spellcheck="false"
+            ref="textarea"
+            v-model="inputText" 
+            :placeholder="placeholder" 
+            @focus="removePlaceholder" 
+            @blur="addPlaceholder"
+            :disabled ="textIsDisabled"
+            >
+          </textarea>
+          <button class="btn next-btn" @click.prevent="nextQuote" :disabled="btnIsDisabled">Next quote</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside v-show="sidebarActive" class="sidebar">
+      <div class="sidebar__inner">
+        <div class="sidebar__timer">
+          <div class="sidebar__timer-text">Your time</div>
+          <div class="sidebar__timer-value">{{getTime}}</div>       
+        </div>
+        <div class="sidebar__counter">
+          <div class="sidebar__counter-text">Characters per minute</div>
+          <div class="sidebar__counter-value">{{cpm}}</div>        
+        </div>
+        <div class="sidebar__accuracy">
+          <div class="sidebar__accuracy-text">Your Accuracy</div>
+          <div class="sidebar__accuracy-value">{{accuracy + "%"}}</div>         
+        </div>
+        <div class="sidebar__mistakes">
+          <div class="sidebar__mistakes-text">Mistakes</div>
+          <div class="sidebar__mistakes-value">{{mistakes}}</div>         
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.0.5"></script>
+  <script src="js/libs.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
