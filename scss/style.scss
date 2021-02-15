@@ -1,0 +1,210 @@
+@import "libs";
+@import "global";
+
+
+
+.header__inner,
+.main__inner,
+.sidebar__inner {
+  width: 800px;
+  height: 100px;
+  background-color: rgba(250, 250, 250, 0.6);
+  border-radius: 20px 20px 0 0;
+  margin: 0 auto;
+
+}
+
+.main__inner {
+  border-radius: 0 0 20px 20px;
+  height: 470px;
+  padding: 15px;
+}
+
+.sidebar__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  height: 570px;
+  border-radius: 20px;
+  padding: 15px;
+}
+
+
+.header__title {
+  margin: 0;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 60px;
+  line-height: 70px;
+  padding-top: 20px;
+
+  &-text {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: -50px;
+      bottom: 15px;
+      width: 50px;
+      height: 50px;
+      background-image: url(../img/quill-pen.svg);
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.welcome {
+  margin-top: 50px;
+}
+
+.welcome__title {
+  text-align: center;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 26px;
+}
+
+.welcome__text {
+  font-weight: 400;
+  text-align: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 60px;
+  width: 200px;
+  height: 55px;
+  border: none;
+  border-radius: 35px;
+  background-color: rgb(85, 85, 80);
+  color: #fff;
+  cursor: pointer;
+
+
+  &:hover {
+    background-color: rgba(rgb(39, 38, 35), 0.8);
+    color: rgba(rgb(209, 198, 198), 0.8);
+  }
+
+  &:disabled {
+    background-color: rgb(7, 7, 7);
+    color: white;
+    cursor: default;
+  }
+}
+
+.main__content {
+  padding: 0 35px;
+}
+
+.quote {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  min-height: 100px;
+  margin: 0 auto;
+  background-color: rgba(51, 59, 59, 0.6);
+  border-radius: 10px;
+  padding: 15px 30px;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.quote__text {
+  user-select: none;
+  margin-bottom: 30px;
+  transition: color 1s ease-in;
+}
+
+.quote__author {
+  font-style: italic;
+  font-weight: 400;
+  position: absolute;
+  bottom: 15px;
+  right: 30px;
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  height: 150px;
+  margin: 0 auto;
+  background-color: rgba(51, 59, 59, 0.6);
+  border-radius: 10px;
+  padding: 15px 30px;
+  color: #fff;
+  outline: none;
+  resize: none;
+  border: none;
+
+  &:disabled {
+    color: #000;
+  }
+}
+
+.sidebar {
+  position: absolute;
+  right: 150px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar__timer,
+.sidebar__accuracy,
+.sidebar__mistakes,
+.sidebar__counter {
+  text-align: center;
+}
+
+.sidebar__timer-text,
+.sidebar__accuracy-text,
+.sidebar__mistakes-text,
+.sidebar__counter-text {
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 15px;
+}
+
+.sidebar__timer-value,
+.sidebar__accuracy-value,
+.sidebar__mistakes-value,
+.sidebar__counter-value {
+  font-size: 45px;
+  line-height: 45px;
+}
+
+.sidebar__timer-value {
+  width: 180px;
+}
+
+.next-btn {
+  margin-top: 20px;
+}
+
+.correct {
+  color: #000;
+}
+
+.wrong {
+  color: red;
+}
+
+.complete {
+  color: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+[v-cloak] {
+  display: none !important;
+}
+
+@import "media";
