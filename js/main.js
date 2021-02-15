@@ -45,10 +45,6 @@ const App = {
       this.$nextTick(() => this.$refs.textarea.focus());
       this.$nextTick(() => this.start());
       this.sidebarActive = true;
-
-      if (window.matchMedia('(max-width: 1450px)').matches) {
-        this.sidebarActive = false;
-      }
     },
 
     removePlaceholder() {
@@ -128,9 +124,6 @@ const App = {
       this.textIsDisabled = false;
       this.btnIsDisabled = true;
       this.accuracy = 100;
-      if (window.matchMedia('(max-width: 1450px)').matches) {
-        this.sidebarActive = false;
-      }
     },
 
     async nextQuote() {
